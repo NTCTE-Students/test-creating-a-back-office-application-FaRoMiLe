@@ -1,0 +1,465 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "name": "New Project",
+  "sources": [
+    {
+      "id": "bdff37b7-d542-4255-8af4-ce4ba3a57b4e",
+      "name": "default",
+      "kind": {
+        "kind": "AmlEditor"
+      },
+      "content": [
+        "Пользователи",
+        "  id int pk",
+        "  user id",
+        "  userame VARCHAR(155)",
+        "  password VARCHAR(155)",
+        "  role VARCHAR(155)",
+        "",
+        "Клиенты",
+        "  id int pk",
+        "  client id",
+        "  user id",
+        "  name VARCHAR(155)",
+        "  contact_info VARCHAR(155)",
+        "  last_interaction VARCHAR(155)",
+        "",
+        "Заказы",
+        "  id int pk",
+        "  order id",
+        "  client id",
+        "  status VARCHAR(155)",
+        "  date_created VARCHAR(155)",
+        "",
+        "Инвентарь",
+        "  id int pk",
+        "  item id",
+        "  name VARCHAR(155)",
+        "  quantiti VARCHAR(155)",
+        "",
+        "Финансы",
+        "  id int pk",
+        "  transaction id",
+        "  user id",
+        "  type VARCHAR(155)",
+        "  amount VARCHAR(155)",
+        "  date VARCHAR(155)",
+        "",
+        "Уведомления",
+        "  id int pk",
+        "  notification id",
+        "  user id",
+        "  message VARCHAR(155)",
+        "  date_sent VARCHAR(155)"
+      ],
+      "tables": [
+        {
+          "schema": "",
+          "table": "Заказы",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "order",
+              "type": "id"
+            },
+            {
+              "name": "client",
+              "type": "id"
+            },
+            {
+              "name": "status",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "date_created",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        },
+        {
+          "schema": "",
+          "table": "Инвентарь",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "item",
+              "type": "id"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "quantiti",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        },
+        {
+          "schema": "",
+          "table": "Клиенты",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "client",
+              "type": "id"
+            },
+            {
+              "name": "user",
+              "type": "id"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "contact_info",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "last_interaction",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        },
+        {
+          "schema": "",
+          "table": "Пользователи",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "user",
+              "type": "id"
+            },
+            {
+              "name": "userame",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "password",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "role",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        },
+        {
+          "schema": "",
+          "table": "Уведомления",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "notification",
+              "type": "id"
+            },
+            {
+              "name": "user",
+              "type": "id"
+            },
+            {
+              "name": "message",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "date_sent",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        },
+        {
+          "schema": "",
+          "table": "Финансы",
+          "columns": [
+            {
+              "name": "id",
+              "type": "int"
+            },
+            {
+              "name": "transaction",
+              "type": "id"
+            },
+            {
+              "name": "user",
+              "type": "id"
+            },
+            {
+              "name": "type",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "amount",
+              "type": "VARCHAR(155)"
+            },
+            {
+              "name": "date",
+              "type": "VARCHAR(155)"
+            }
+          ],
+          "primaryKey": {
+            "columns": [
+              "id"
+            ]
+          }
+        }
+      ],
+      "relations": [],
+      "createdAt": 1717390217076,
+      "updatedAt": 1717390217076
+    },
+    {
+      "id": "cfc615ff-903e-4c00-8564-dab51f190afc",
+      "name": "fafafaf",
+      "kind": {
+        "kind": "AmlEditor"
+      },
+      "content": [
+        "fk Заказы.client -> Клиенты.client",
+        "fk Пользователи.user -> Уведомления.user",
+        "fk Пользователи.user -> Финансы.user",
+        "fk Пользователи.user -> Клиенты.client",
+        "fk Инвентарь.id -> Финансы.id",
+        "fk Заказы.id -> Финансы.id"
+      ],
+      "tables": [],
+      "relations": [
+        {
+          "name": "Заказы_client_fk_az",
+          "src": {
+            "table": ".Заказы",
+            "column": "client"
+          },
+          "ref": {
+            "table": ".Клиенты",
+            "column": "client"
+          }
+        },
+        {
+          "name": "Пользователи_user_fk_az",
+          "src": {
+            "table": ".Пользователи",
+            "column": "user"
+          },
+          "ref": {
+            "table": ".Уведомления",
+            "column": "user"
+          }
+        },
+        {
+          "name": "Пользователи_user_fk_az",
+          "src": {
+            "table": ".Пользователи",
+            "column": "user"
+          },
+          "ref": {
+            "table": ".Финансы",
+            "column": "user"
+          }
+        },
+        {
+          "name": "Пользователи_user_fk_az",
+          "src": {
+            "table": ".Пользователи",
+            "column": "user"
+          },
+          "ref": {
+            "table": ".Клиенты",
+            "column": "client"
+          }
+        },
+        {
+          "name": "Инвентарь_id_fk_az",
+          "src": {
+            "table": ".Инвентарь",
+            "column": "id"
+          },
+          "ref": {
+            "table": ".Финансы",
+            "column": "id"
+          }
+        },
+        {
+          "name": "Заказы_id_fk_az",
+          "src": {
+            "table": ".Заказы",
+            "column": "id"
+          },
+          "ref": {
+            "table": ".Финансы",
+            "column": "id"
+          }
+        }
+      ],
+      "createdAt": 1717390267076,
+      "updatedAt": 1717390267076
+    }
+  ],
+  "layouts": {
+    "initial layout": {
+      "tables": [
+        {
+          "id": ".Финансы",
+          "position": {
+            "left": 920,
+            "top": 310
+          },
+          "size": {
+            "width": 142.10000610351562,
+            "height": 189
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "transaction",
+            "user",
+            "type",
+            "amount",
+            "date"
+          ]
+        },
+        {
+          "id": ".Уведомления",
+          "position": {
+            "left": 450,
+            "top": 130
+          },
+          "size": {
+            "width": 173.78334045410156,
+            "height": 165
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "notification",
+            "user",
+            "message",
+            "date_sent"
+          ]
+        },
+        {
+          "id": ".Пользователи",
+          "position": {
+            "left": 320,
+            "top": 420
+          },
+          "size": {
+            "width": 179.64999389648438,
+            "height": 165
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "user",
+            "userame",
+            "password",
+            "role"
+          ]
+        },
+        {
+          "id": ".Клиенты",
+          "position": {
+            "left": 540,
+            "top": 530
+          },
+          "size": {
+            "width": 191.86666870117188,
+            "height": 189
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "client",
+            "user",
+            "name",
+            "contact_info",
+            "last_interaction"
+          ]
+        },
+        {
+          "id": ".Инвентарь",
+          "position": {
+            "left": 840,
+            "top": 560
+          },
+          "size": {
+            "width": 146.1999969482422,
+            "height": 141
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "item",
+            "name",
+            "quantiti"
+          ]
+        },
+        {
+          "id": ".Заказы",
+          "position": {
+            "left": 730,
+            "top": 130
+          },
+          "size": {
+            "width": 174.60000610351562,
+            "height": 165
+          },
+          "color": "default",
+          "columns": [
+            "id",
+            "order",
+            "client",
+            "status",
+            "date_created"
+          ]
+        }
+      ],
+      "createdAt": 1717390217076,
+      "updatedAt": 1717390337148
+    }
+  },
+  "createdAt": 1717390220260,
+  "updatedAt": 1717390220260,
+  "version": 2
+}
+
